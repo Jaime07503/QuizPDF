@@ -34,9 +34,6 @@ export const Quiz = () => {
         "https://quiz-pdf-back-end.vercel.app/upload",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: formData,
         }
       );
