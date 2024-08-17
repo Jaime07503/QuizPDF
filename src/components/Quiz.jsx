@@ -30,10 +30,13 @@ export const Quiz = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://back-end-node-psi.vercel.app/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Error al procesar el archivo.");
