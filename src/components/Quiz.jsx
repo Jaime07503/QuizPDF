@@ -35,6 +35,7 @@ export const Quiz = () => {
         {
           method: "POST",
           body: formData,
+          mode: "no-cors",
         }
       );
 
