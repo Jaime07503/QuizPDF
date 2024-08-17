@@ -31,7 +31,7 @@ export const Quiz = () => {
 
     try {
       const response = await fetch(
-        "https://back-end-node-psi.vercel.app/upload",
+        "https://quiz-pdf-back-end.vercel.app/upload",
         {
           method: "POST",
           body: formData,
