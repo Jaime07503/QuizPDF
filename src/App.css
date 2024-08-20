@@ -18,7 +18,7 @@ h1,
   text-align: center;
 }
 
-.file-input {
+#file__input {
   display: none;
 }
 
@@ -28,7 +28,7 @@ h1,
   color: #fffa;
 }
 
-.file-upload-label {
+.file__input--upload {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,16 +41,16 @@ h1,
   transition: background-color 0.3s ease;
 }
 
-.file-upload-label:hover {
+.file__input--upload:hover {
   background-color: #d75a5aaa;
 }
 
-.upload-icon svg {
+.upload__icon svg {
   width: 5em;
   height: 5em;
 }
 
-#remove-file,
+#remove__file,
 .input__button {
   width: 100%;
   font-size: 1.2em;

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Questions } from "./Questions.jsx";
+import DeleteIcon from "../assets/delete.jsx";
+import CreateQuizIcon from "../assets/create.jsx";
+import UploadFileIcon from "../assets/upload.jsx";
 import "../App.css";
 
 export const Quiz = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
 
   const handleFileUpload = (e) => {
     setFile(e.target.files[0]);
@@ -14,17 +16,15 @@ export const Quiz = () => {
 
   const handleRemoveFile = () => {
     setFile(null);
-    document.getElementById("file-input").value = "";
+    document.getElementById("file__input").value = "";
   };
 
   const handleSubmit = async () => {
     if (!file) {
-      setError("Por favor, selecciona un archivo PDF.");
       return;
     }
 
     setLoading(true);
-    setError(null);
 
     const formData = new FormData();
     formData.append("file", file);
@@ -41,9 +41,7 @@ export const Quiz = () => {
 
       const data = await response.json();
       setResult(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
+    } catch {
       setLoading(false);
     }
   };
@@ -52,85 +50,35 @@ export const Quiz = () => {
     <main className="main__container">
       <section className="file__container">
         <input
-          id="file-input"
-          className="input__file"
+          id="file__input"
           type="file"
           accept="application/pdf"
           onChange={handleFileUpload}
-          style={{ display: "none" }}
         />
-        <label htmlFor="file-input" className="file-upload-label">
-          <div className="upload-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-cloud-upload"
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="#ffffff"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1" />
-              <path d="M9 15l3 -3l3 3" />
-              <path d="M12 12l0 9" />
-            </svg>
+        <label htmlFor="file__input" className="file__input--upload">
+          <div className="upload__icon">
+            <UploadFileIcon />
           </div>
           <span className="file__name">
             {file ? file.name : "Explorar archivos para cargar"}
           </span>
         </label>
         {file && (
-          <button id="remove-file" onClick={handleRemoveFile}>
-            Eliminar archivo
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-square-rounded-x"
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="#ffffff"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          <>
+            <button id="remove__file" onClick={handleRemoveFile}>
+              Eliminar archivo
+              <DeleteIcon />
+            </button>
+            <button
+              className="input__button"
+              onClick={handleSubmit}
+              disabled={loading}
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M10 10l4 4m0 -4l-4 4" />
-              <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-            </svg>
-          </button>
+              {loading ? "Procesando..." : "Generar Quiz"}
+              <CreateQuizIcon />
+            </button>
+          </>
         )}
-        {file && (
-          <button
-            className="input__button"
-            onClick={handleSubmit}
-            disabled={loading}
-          >
-            {loading ? "Procesando..." : "Generar Quiz"}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-square-rounded-plus"
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="#ffffff"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-              <path d="M15 12h-6" />
-              <path d="M12 9v6" />
-            </svg>
-          </button>
-        )}
-        {error && <p className="input__error">{error}</p>}
       </section>
       {result && <Questions result={result} />}
     </main>
