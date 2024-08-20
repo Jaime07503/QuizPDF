@@ -1,7 +1,7 @@
 export const Header = () => {
   return (
     <header>
-      <h1>QuizPDF Generador de Cuestionarios</h1>
+      <h1>ARA - Generador de Quizzes</h1>
     </header>
   );
 };
