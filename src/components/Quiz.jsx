@@ -3,7 +3,7 @@ import { Questions } from "./Questions.jsx";
 import DeleteIcon from "../assets/delete.jsx";
 import CreateQuizIcon from "../assets/create.jsx";
 import UploadFileIcon from "../assets/upload.jsx";
-import "../App.css";
+import "../Quiz.css";
 
 export const Quiz = () => {
   const [file, setFile] = useState(null);

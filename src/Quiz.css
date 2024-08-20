@@ -1,0 +1,67 @@
+.file-upload-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#file__input {
+  display: none;
+}
+
+.file__name {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #fffa;
+}
+
+.file__input--upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15em;
+  border: 2px dashed #d75a5aaa;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file__input--upload:hover {
+  background-color: #d75a5aaa;
+}
+
+.upload__icon svg {
+  width: 5em;
+  height: 5em;
+}
+
+#remove__file,
+.input__button {
+  width: 100%;
+  font-size: 1.2em;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.main__container,
+.quiz__container,
+.file__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  width: 100%;
+}
+
+.quiz__container {
+  padding: 3rem;
+  background: #1a1a1a;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px 0 #000;
+  box-sizing: border-box;
+}

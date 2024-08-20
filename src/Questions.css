@@ -1,0 +1,72 @@
+.summary__content,
+.item__answer {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.quiz__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.list__item {
+  list-style: none;
+}
+
+.grid__container {
+  width: 100%;
+}
+
+.memory__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  padding: 2rem 0;
+}
+
+.memory__card {
+  background: #242424;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  perspective: 1000px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fffa;
+  transition: background 0.3s;
+}
+
+.memory__card:hover {
+  outline: 3px solid #d75a5a;
+}
+
+.memory__card.flipped .card__content {
+  transform: rotateY(0);
+}
+
+.memory__card.matched {
+  background: #d75a5aaa;
+}
+
+.card__content {
+  height: 22rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+  border-radius: 0.5rem;
+  color: #fffa;
+  padding: 0 3rem;
+}
+
+.card__content svg {
+  width: 14rem;
+  height: 14rem;
+}

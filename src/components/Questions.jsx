@@ -1,7 +1,10 @@
 import { useState } from "react";
-import "../App.css";
+import "../Questions.css";
 
 export const Questions = ({ result }) => {
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [matchedCards, setMatchedCards] = useState([]);
+
   const parseQuestions = (text) => {
     const lines = text.split("\n").filter((line) => line.trim() !== "");
 
@@ -20,9 +23,6 @@ export const Questions = ({ result }) => {
     { text: qa.question, id: qa.question, isQuestion: true },
     { text: qa.answer, id: qa.question, isQuestion: false },
   ]);
-
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
 
   const handleCardClick = (index) => {
     if (flippedCards.length === 2) return;
