@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Questions } from "./Questions.jsx";
-import DeleteIcon from "../assets/delete.jsx";
-import CreateQuizIcon from "../assets/create.jsx";
-import UploadFileIcon from "../assets/upload.jsx";
+import DeleteFileIcon from "../assets/DeleteFileIcon.jsx";
+import CreateQuizIcon from "../assets/CreateQuizIcon.jsx";
+import UploadFileIcon from "../assets/UploadFileIcon.jsx";
 import "../Quiz.css";
 
 export const Quiz = () => {
@@ -64,10 +64,10 @@ export const Quiz = () => {
           </span>
         </label>
         {file && (
-          <>
+          <div className="buttons__container">
             <button id="remove__file" onClick={handleRemoveFile}>
-              Eliminar archivo
-              <DeleteIcon />
+              Eliminar Archivo
+              <DeleteFileIcon />
             </button>
             <button
               className="input__button"
@@ -77,7 +77,7 @@ export const Quiz = () => {
               {loading ? "Procesando..." : "Generar Quiz"}
               <CreateQuizIcon />
             </button>
-          </>
+          </div>
         )}
       </section>
       {result && <Questions result={result} />}

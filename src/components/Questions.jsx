@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardIcon from "../assets/card";
+import CardIcon from "../assets/CardIcon";
 import "../Questions.css";
 
 export const Questions = ({ result }) => {

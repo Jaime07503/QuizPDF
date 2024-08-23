@@ -7,7 +7,7 @@ export const DeleteIcon = () => {
       height="44"
       viewBox="0 0 24 24"
       strokeWidth="1.5"
-      stroke="#ffffff"
+      stroke="#ffffffaa"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
