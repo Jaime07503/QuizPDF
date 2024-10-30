@@ -1,8 +1,4 @@
-# React + Vite
+# ARA - Generador de Quizzes
+ARA es un generador de quizzes mediante pdfs ingresados por el usuario, utiliza gpt para la creación de preguntas y respuestas, luego muestra un juego de cartas al estilo de juego de memoria con las preguntas y respuestas.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Demo: https://quiz-pdf-front-end.vercel.app/
