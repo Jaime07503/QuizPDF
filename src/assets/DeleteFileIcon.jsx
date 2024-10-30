@@ -2,12 +2,12 @@ export const DeleteIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-square-rounded-x"
+      className="icon icon-tabler icon-tabler-square-rounded-x size-8"
       width="44"
       height="44"
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="#ffffffaa"
+      strokeWidth="2"
+      stroke="#ffffff"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

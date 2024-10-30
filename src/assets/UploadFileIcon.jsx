@@ -2,12 +2,12 @@ export const UploadFileIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-cloud-upload"
+      className="icon icon-tabler icon-tabler-cloud-upload size-20"
       width="44"
       height="44"
       viewBox="0 0 24 24"
       strokeWidth="1.5"
-      stroke="#ffffffaa"
+      stroke="#ffffff"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

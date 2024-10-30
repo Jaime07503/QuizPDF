@@ -2,7 +2,7 @@ export const CardIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-play-card"
+      className="icon icon-tabler icon-tabler-play-card size-64"
       width="44"
       height="44"
       viewBox="0 0 24 24"
