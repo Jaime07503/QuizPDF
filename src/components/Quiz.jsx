@@ -9,6 +9,7 @@ export const Quiz = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null); // Nuevo estado para manejar errores
 
   const handleFileUpload = (e) => {
     setFile(e.target.files[0]);
@@ -25,15 +26,20 @@ export const Quiz = () => {
     }
 
     setLoading(true);
+    setError(null); // Reiniciar el error al enviar un nuevo archivo
 
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        // "http://quiz-pdf-back-end.vercel.app/upload",
+        "http://localhost:5000/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Error al procesar el archivo.");
@@ -41,8 +47,10 @@ export const Quiz = () => {
 
       const data = await response.json();
       setResult(data);
-    } catch {
-      setLoading(false);
+    } catch (err) {
+      setError(err.message); // Guardar el mensaje de error
+    } finally {
+      setLoading(false); // Asegurarse de que el loading se detenga
     }
   };
 
@@ -98,6 +106,8 @@ export const Quiz = () => {
           </div>
         )}
       </section>
+      {error && <p className="text-red-500">{error}</p>}{" "}
+      {/* Mensaje de error */}
       {result && <Questions result={result} />}
     </main>
   );

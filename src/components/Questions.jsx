@@ -7,9 +7,8 @@ export const Questions = ({ result }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
 
-  const parseQuestions = (text) => {
+  const parseQuestions = (text = "") => {
     const lines = text.split("\n").filter((line) => line.trim() !== "");
-
     const questionsArray = [];
     for (let i = 0; i < lines.length; i += 2) {
       questionsArray.push({
@@ -20,7 +19,12 @@ export const Questions = ({ result }) => {
     return questionsArray;
   };
 
-  const questionsArray = parseQuestions(result.questions.content);
+  // Validación de existencia de datos en result antes de procesarlos
+  const questionsArray = result?.questions
+    ? parseQuestions(result.questions) // Cambiar a result.questions
+    : [];
+  const summaryContent = result?.summary || "Resumen no disponible"; // Cambiar a result.summary
+
   const pairs = questionsArray.flatMap((qa) => [
     { text: qa.question, id: qa.question, isQuestion: true },
     { text: qa.answer, id: qa.question, isQuestion: false },
@@ -64,7 +68,7 @@ export const Questions = ({ result }) => {
         <SummaryIcon />
       </h2>
       <p className="text-white text-lg text-balance font-semibold mb-6">
-        {result.summary.content}
+        {summaryContent}
       </p>
 
       <h2 className="text-2xl text-[#D75A5A] font-bold flex items-center justify-center gap-4 mb-6">
