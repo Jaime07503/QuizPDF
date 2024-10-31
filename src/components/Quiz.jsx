@@ -33,8 +33,7 @@ export const Quiz = () => {
 
     try {
       const response = await fetch(
-        // "http://quiz-pdf-back-end.vercel.app/upload",
-        "http://localhost:5000/upload",
+        "https://quiz-pdf-back-end.vercel.app/upload",
         {
           method: "POST",
           body: formData,
