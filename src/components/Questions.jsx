@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import CardIcon from "../assets/CardIcon";
 import SummaryIcon from "../assets/SummaryIcon";
 import GameIcon from "../assets/GameIcon";
@@ -34,8 +34,8 @@ export const Questions = ({ result }) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
-  // Mezcla el arreglo de pairs antes de mapear
-  const shuffledPairs = shuffleArray(pairs);
+  // Utilizamos useMemo para que se mezcle solo una vez al inicio
+  const shuffledPairs = useMemo(() => shuffleArray([...pairs]), [pairs]);
 
   const handleCardClick = (index) => {
     if (flippedCards.length === 2) return;
