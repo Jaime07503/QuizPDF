@@ -19,16 +19,23 @@ export const Questions = ({ result }) => {
     return questionsArray;
   };
 
-  // Validación de existencia de datos en result antes de procesarlos
   const questionsArray = result?.questions
-    ? parseQuestions(result.questions) // Cambiar a result.questions
+    ? parseQuestions(result.questions)
     : [];
-  const summaryContent = result?.summary || "Resumen no disponible"; // Cambiar a result.summary
+  const summaryContent = result?.summary || "Resumen no disponible";
 
   const pairs = questionsArray.flatMap((qa) => [
     { text: qa.question, id: qa.question, isQuestion: true },
     { text: qa.answer, id: qa.question, isQuestion: false },
   ]);
+
+  // Función para mezclar el arreglo de cartas
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  // Mezcla el arreglo de pairs antes de mapear
+  const shuffledPairs = shuffleArray(pairs);
 
   const handleCardClick = (index) => {
     if (flippedCards.length === 2) return;
@@ -39,8 +46,8 @@ export const Questions = ({ result }) => {
 
       if (newFlipped.length === 2) {
         const [firstIndex, secondIndex] = newFlipped;
-        const firstCard = pairs[firstIndex];
-        const secondCard = pairs[secondIndex];
+        const firstCard = shuffledPairs[firstIndex];
+        const secondCard = shuffledPairs[secondIndex];
 
         if (
           firstCard.id === secondCard.id &&
@@ -77,7 +84,7 @@ export const Questions = ({ result }) => {
       </h2>
       <div className="w-full mt-4">
         <div className="grid grid-cols-[repeat(auto-fit,_minmax(285px,_1fr))] gap-6 px-2">
-          {pairs.map((card, index) => (
+          {shuffledPairs.map((card, index) => (
             <div
               key={index}
               className={`flex justify-center items-center cursor-pointer p-2 border-2 border-transparent rounded-lg text-[#FFFA] transition-colors duration-300 ease-in-out ${
