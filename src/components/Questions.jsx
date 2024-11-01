@@ -3,6 +3,11 @@ import CardIcon from "../assets/CardIcon";
 import SummaryIcon from "../assets/SummaryIcon";
 import GameIcon from "../assets/GameIcon";
 
+// Función para mezclar el arreglo de cartas (fuera del componente)
+const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5);
+};
+
 export const Questions = ({ result }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -29,13 +34,8 @@ export const Questions = ({ result }) => {
     { text: qa.answer, id: qa.question, isQuestion: false },
   ]);
 
-  // Función para mezclar el arreglo de cartas
-  const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-  };
-
   // Utilizamos useMemo para que se mezcle solo una vez al inicio
-  const shuffledPairs = useMemo(() => shuffleArray([...pairs]), [pairs]);
+  const shuffledPairs = useMemo(() => shuffleArray([...pairs]), []);
 
   const handleCardClick = (index) => {
     if (flippedCards.length === 2) return;
