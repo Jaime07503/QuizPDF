@@ -7,9 +7,13 @@ const shuffleArray = (array) => {
   return array.sort(() => Math.random() - 0.5);
 };
 
+// Paleta de colores para las parejas
+const colors = ["#6C9A8B", "#6E9D6C", "#F1C993", "#E1A052", "#8C9833"];
+
 export const Questions = ({ result }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
+  const [matchedColors, setMatchedColors] = useState({});
 
   const parseQuestions = (text = "") => {
     const lines = text.split("\n").filter((line) => line.trim() !== "");
@@ -53,6 +57,13 @@ export const Questions = ({ result }) => {
           firstCard.isQuestion !== secondCard.isQuestion
         ) {
           setMatchedCards((prev) => [...prev, firstIndex, secondIndex]);
+
+          // Asignar color a la pareja que hace match
+          const colorIndex = Object.keys(matchedColors).length % colors.length;
+          setMatchedColors((prev) => ({
+            ...prev,
+            [firstCard.id]: colors[colorIndex],
+          }));
         }
 
         setTimeout(() => {
@@ -89,9 +100,16 @@ export const Questions = ({ result }) => {
               className={`flex justify-center items-center cursor-pointer p-2 border-2 border-transparent rounded-lg text-[#FFFA] transition-colors duration-300 ease-in-out ${
                 isFlipped(index) ? "flipped" : ""
               } ${
-                isMatched(index) ? "matched bg-[#D75A5ABB]" : ""
+                isMatched(index)
+                  ? `matched`
+                  : ""
               } hover:border-[#FFFA]`}
               onClick={() => handleCardClick(index)}
+              style={{
+                backgroundColor: isMatched(index)
+                  ? matchedColors[card.id]
+                  : "transparent",
+              }}
             >
               <div
                 className={`h-[24rem] flex justify-center items-center transform ${
