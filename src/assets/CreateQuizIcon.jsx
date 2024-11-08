@@ -7,7 +7,7 @@ export const CreateQuizIcon = () => {
       height="44"
       viewBox="0 0 24 24"
       strokeWidth="2"
-      stroke="#ffffff"
+      stroke="#615858"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

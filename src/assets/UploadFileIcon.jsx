@@ -7,7 +7,7 @@ export const UploadFileIcon = () => {
       height="44"
       viewBox="0 0 24 24"
       strokeWidth="1.5"
-      stroke="#ffffff"
+      stroke="#D75A5A"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

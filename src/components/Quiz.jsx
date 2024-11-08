@@ -72,17 +72,17 @@ export const Quiz = () => {
         />
         <label
           htmlFor="file__input"
-          className="flex flex-col justify-center items-center w-full h-60 border-[2px] border-dashed border-[#d75a5aaa] rounded-lg cursor-pointer hover:bg-[#d75a5aaa] hover:border-[#e3b4b455] transition-colors duration-500"
+          className="flex flex-col justify-center items-center w-full h-60 border-[2px] border-dashed border-[#d75a5aaa] rounded-lg cursor-pointer hover:bg-[#d75a5a55] hover:border-[#e3b4b455] transition-colors duration-500"
         >
           <UploadFileIcon />
-          <span className="text-lg font-bold text-white">
+          <span className="text-lg font-bold text-[#D75A5A]">
             {file ? file.name : "Explorar archivos para cargar"}
           </span>
         </label>
         {file && (
           <div className="w-full flex gap-6">
             <button
-              className="w-full text-lg text-white font-bold p-2 flex items-center justify-center border-2 border-[#d75a5aaa] gap-2 hover:bg-[#d75a5a55] transition-colors duration-500 rounded-lg"
+              className="w-full text-lg text-[#D75A5A] font-bold p-2 flex items-center justify-center border-2 border-[#d75a5aaa] gap-2 hover:bg-[#d75a5a55] transition-colors duration-500 rounded-lg"
               onClick={handleRemoveFile}
             >
               Eliminar Archivo
@@ -95,7 +95,7 @@ export const Quiz = () => {
               onChange={setValue}
             /> */}
             <button
-              className="w-full text-lg text-white font-bold p-2 flex items-center justify-center border-2 border-[#615858] gap-2 hover:bg-[#1A1A1A] transition-colors duration-500 rounded-lg"
+              className="w-full text-lg text-[#615858] font-bold p-2 flex items-center justify-center border-2 border-[#615858] gap-2 hover:bg-[#1A1A1A33] transition-colors duration-500 rounded-lg"
               onClick={handleSubmit}
               disabled={loading}
             >
@@ -105,7 +105,7 @@ export const Quiz = () => {
           </div>
         )}
       </section>
-      {error && <p className="text-red-500">{error}</p>}{" "}
+      {error && <p className="mt-6 text-red-500 font-semibold text-xl">{error}</p>}{" "}
       {/* Mensaje de error */}
       {result && <Questions result={result} />}
     </main>
