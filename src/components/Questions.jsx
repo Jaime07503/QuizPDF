@@ -79,7 +79,7 @@ export const Questions = ({ result }) => {
   const isMatched = (index) => matchedCards.includes(index);
 
   return (
-    <section className="mt-6 rounded-lg shadow-lg box-border">
+    <section className="p-8 mt-6 rounded-lg shadow-lg box-border border-2 border-[#D75A5A]">
       <h2 className="text-2xl text-[#D75A5A] font-bold mb-4 flex justify-center items-center gap-4">
         Resumen
         <SummaryIcon />
