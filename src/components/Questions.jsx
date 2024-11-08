@@ -8,7 +8,7 @@ const shuffleArray = (array) => {
 };
 
 // Paleta de colores para las parejas
-const colors = ["#6C9A8B", "#6E9D6C", "#F1C993", "#E1A052", "#8C9833"];
+const colors = ["#6E9D6C", "#F1C993", "#E1A052"];
 
 export const Questions = ({ result }) => {
   const [flippedCards, setFlippedCards] = useState([]);
