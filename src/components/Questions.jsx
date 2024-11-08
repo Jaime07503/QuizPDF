@@ -3,7 +3,6 @@ import CardIcon from "../assets/CardIcon";
 import SummaryIcon from "../assets/SummaryIcon";
 import GameIcon from "../assets/GameIcon";
 
-// Función para mezclar el arreglo de cartas (fuera del componente)
 const shuffleArray = (array) => {
   return array.sort(() => Math.random() - 0.5);
 };
