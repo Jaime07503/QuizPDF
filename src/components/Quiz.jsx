@@ -33,8 +33,7 @@ export const Quiz = () => {
 
     try {
       const response = await fetch(
-        // "https://quiz-pdf-back-end.vercel.app/upload",
-        "http://localhost:5000/upload",
+        "https://quiz-pdf-back-end.vercel.app/upload",
         {
           method: "POST",
           body: formData,
@@ -89,12 +88,6 @@ export const Quiz = () => {
               Eliminar Archivo
               <DeleteFileIcon />
             </button>
-            {/* <Difficult
-              name="dificultad"
-              items={items}
-              value={value}
-              onChange={setValue}
-            /> */}
             <button
               className="w-full text-lg text-[#615858] font-bold shadow-lg p-2 flex items-center justify-center border-2 border-[#615858] gap-2 hover:bg-[#1A1A1A33] transition-colors duration-500 rounded-lg"
               onClick={handleSubmit}
