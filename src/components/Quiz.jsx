@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Questions } from "./Questions.jsx";
-import { Difficult } from "./Difficult.jsx";
 import DeleteFileIcon from "../assets/DeleteFileIcon.jsx";
 import CreateQuizIcon from "../assets/CreateQuizIcon.jsx";
 import UploadFileIcon from "../assets/UploadFileIcon.jsx";
@@ -52,13 +51,6 @@ export const Quiz = () => {
       setLoading(false); // Asegurarse de que el loading se detenga
     }
   };
-
-  const [value, setValue] = useState(null);
-  const items = [
-    { value: "facil", label: "Fácil" },
-    { value: "intermedio", label: "Intermedio" },
-    { value: "dificil", label: "Difícil" },
-  ];
 
   return (
     <main className="max-w-7xl mx-auto">
