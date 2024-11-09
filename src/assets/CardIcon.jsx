@@ -7,7 +7,7 @@ export const CardIcon = () => {
       height="44"
       viewBox="0 0 24 24"
       strokeWidth="0.5"
-      stroke="#d75a5a"
+      stroke="#E6953E"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

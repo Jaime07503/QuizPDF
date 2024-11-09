@@ -33,7 +33,8 @@ export const Quiz = () => {
 
     try {
       const response = await fetch(
-        "https://quiz-pdf-back-end.vercel.app/upload",
+        // "https://quiz-pdf-back-end.vercel.app/upload",
+        "http://localhost:5000/upload",
         {
           method: "POST",
           body: formData,
@@ -72,7 +73,7 @@ export const Quiz = () => {
         />
         <label
           htmlFor="file__input"
-          className="flex flex-col justify-center items-center w-full h-60 border-[2px] border-dashed border-[#d75a5aaa] rounded-lg cursor-pointer hover:bg-[#d75a5a55] hover:border-[#e3b4b455] transition-colors duration-500"
+          className="flex flex-col justify-center items-center w-full h-60 border-[2px] border-dashed border-[#d75a5aaa] rounded-lg cursor-pointer shadow-lg hover:bg-[#d75a5a55] hover:border-[#e3b4b455] transition-colors duration-500"
         >
           <UploadFileIcon />
           <span className="text-lg font-bold text-[#D75A5A]">
@@ -82,7 +83,7 @@ export const Quiz = () => {
         {file && (
           <div className="w-full flex gap-6">
             <button
-              className="w-full text-lg text-[#D75A5A] font-bold p-2 flex items-center justify-center border-2 border-[#d75a5aaa] gap-2 hover:bg-[#d75a5a55] transition-colors duration-500 rounded-lg"
+              className="w-full text-lg text-[#D75A5A] font-bold shadow-lg p-2 flex items-center justify-center border-2 border-[#d75a5aaa] gap-2 hover:bg-[#d75a5a55] transition-colors duration-500 rounded-lg"
               onClick={handleRemoveFile}
             >
               Eliminar Archivo
@@ -95,7 +96,7 @@ export const Quiz = () => {
               onChange={setValue}
             /> */}
             <button
-              className="w-full text-lg text-[#615858] font-bold p-2 flex items-center justify-center border-2 border-[#615858] gap-2 hover:bg-[#1A1A1A33] transition-colors duration-500 rounded-lg"
+              className="w-full text-lg text-[#615858] font-bold shadow-lg p-2 flex items-center justify-center border-2 border-[#615858] gap-2 hover:bg-[#1A1A1A33] transition-colors duration-500 rounded-lg"
               onClick={handleSubmit}
               disabled={loading}
             >
